@@ -1,7 +1,7 @@
 <template>
     <el-menu router :default-active="activeIndex">
         <el-menu-item
-            v-for="(item,index) in menuData[user.role]"
+            v-for="(item) in menuData[user.role]"
             :index="item.path"
             :key="item.path"
             :route="item.path"
@@ -113,3 +113,7 @@ const menuData = reactive({
 
 });
 </script>
+
+<style lang="scss" scoped>
+
+</style>

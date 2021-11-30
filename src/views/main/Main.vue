@@ -25,10 +25,6 @@ const leftmenu = ref(false)
 
 provide('user', computed(()=>store.state.token))
 
-onUnmounted(()=>{
-  console.log('unMounted')
-})
-
 </script>
 
 <style lang="scss" scoped>

@@ -2,11 +2,14 @@
 <div id="ct">
   <router-view></router-view>
 </div>
-    
 </template>
 
 
 <script setup>
+import {provide} from 'vue'
+import https from '@/apis/axios.js' 
+
+provide('axios', https) 
 
 </script>
 

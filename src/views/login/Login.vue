@@ -110,10 +110,11 @@ const submitForm = async () => {
 </script>
 
 
-<style>
+<style scss>
 #remember-me {
     margin-bottom: 0;
 }
+
 #remember-me * {
     line-height: 10px;
     margin-top: 0;

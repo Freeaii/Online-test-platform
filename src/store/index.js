@@ -3,11 +3,12 @@ import { createStore } from 'vuex'
 import createPersistedState from "vuex-persistedstate";
 // import user from "./modules/user";
 const guest ={
+  id:0,
   username: 'guest',
   name:'Guest',
-  token_type: 'bearer',
-  avatar:defaultAvatar,
   role: 'guest',
+  avatar:defaultAvatar,
+  token_type: 'bearer',
   access_token:'',
 }
 

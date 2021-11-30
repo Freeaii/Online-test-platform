@@ -76,8 +76,6 @@ https.interceptors.response.use((response) => {
 
     return response.data;
 }, (error) => {
-    // console.log('请求错误', error, axios.isCancel(error), error.message);
-
     if (axios.isCancel(error)) {
         // console.log('重复请求: ' + error.message);
         ElMessage({
@@ -137,7 +135,6 @@ const showStatus = (status) => {
             message = `连接出错(${status})!`;
     }
     return message;
-    // return `${message}，请检查网络或联系管理员！`
 };
 
 export default https;

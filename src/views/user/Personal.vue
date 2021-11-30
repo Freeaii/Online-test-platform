@@ -34,11 +34,22 @@
 </template>
 
 <script setup>
-import {ref, inject, reactive, onMounted} from 'vue'
+import {ref, inject, reactive, onMounted, watch} from 'vue'
 import https from '@/apis/axios'
 
-  const userinfo = inject('user')
+  let userinfo = inject('user')
   const activeName = ref('first')
+  
+
+  onMounted(()=>{
+    // console.log(userinfo.value)
+    // console.log(userinfo.value.id)
+    // https.get('/users/'+userinfo.value.id).then(response=>{
+    //   console.log(response)
+    // })
+    
+  })
+  
 
 </script>
 
