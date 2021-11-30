@@ -5,13 +5,11 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 import * as elIcons  from '@element-plus/icons'
-import service from './apis/axios'
 import App from './App.vue'
 
 const app = createApp(App)
 app.use(router)
 app.use(store)
-app.config.globalProperties.$http = service
 
 const reserveds = ['Menu', 'View']
 for(const name in elIcons){

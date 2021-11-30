@@ -43,7 +43,7 @@
 
 <script setup>
 import { ref, reactive, onMounted } from "vue";
-import service from '../../apis/axios'
+import https from '@/apis/axios'
 import {useStore} from 'vuex';
 import { useRouter } from 'vue-router'
 
@@ -93,7 +93,7 @@ const submitForm = async () => {
         formData.append('username',loginForm.username)
         formData.append('password',loginForm.password)
         
-        service.post('/auth/login', formData,{
+        https.post('/auth/login', formData,{
             headers:{
                 'Content-Type': 'application/x-www-form-urlencoded'
             }

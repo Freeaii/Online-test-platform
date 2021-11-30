@@ -9,7 +9,7 @@
         <el-space>
             <el-dropdown>
                 <el-space>
-                    <el-avatar size="small" :src="user.avatar||defaultAvartar">ddd</el-avatar>
+                    <el-avatar size="small" :src="user.avatar"></el-avatar>
                     <span style="color: wheat;">{{user.name}}</span>
                 </el-space>
                 <template #dropdown>
@@ -23,7 +23,7 @@
                     <template v-else>
                         <el-dropdown-menu>
                             <el-dropdown-item @click="switchAccount()">切换账号</el-dropdown-item>
-                            <el-dropdown-item @click="store.dispatch('logout')">退出</el-dropdown-item>
+                            <el-dropdown-item @click="switchAccount('logout')">退出</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </template>
@@ -36,7 +36,7 @@
 import { ref, inject } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from 'vue-router'
-import logo from "../../assets/logo.png";
+import logo from "@/assets/logo.png";
 
 const emit = defineEmits(['toggleMenu'])
 

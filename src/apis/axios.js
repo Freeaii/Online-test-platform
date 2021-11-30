@@ -1,10 +1,10 @@
 // ./src/plugins/axios/axiosConfigs.ts
 import axios from 'axios'
-import store from '../store'
+import store from '@/store'
 import { ElMessage } from "element-plus";
 
 // 创建axios的实例
-const service = axios.create({
+const https = axios.create({
     // `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL
     baseURL: import.meta.env.MODE === 'development' ? 'http://127.0.0.1:8000' : 'http://127.0.0.1:8000',
     headers: {
@@ -30,12 +30,12 @@ const service = axios.create({
 });
 
 // 添加请求拦截器
-service.interceptors.request.use((config) => {
+https.interceptors.request.use((config) => {
     // console.log('发送请求之前', config.url);
     // 获取 token ，并将其添加至请求头中
-    let token = store.state.token.access_token;
-    if(!!token){
-        config.headers.Authorization = token;
+    let {access_token, token_type} = store.state.token;
+    if(!!access_token){
+        config.headers.Authorization = token_type + ' ' + access_token;
         // config.headers.Authorization = 'Bearer ' + token;
     }
 
@@ -52,7 +52,7 @@ service.interceptors.request.use((config) => {
 });
 
 //添加响应拦截器
-service.interceptors.response.use((response) => {
+https.interceptors.response.use((response) => {
     // console.log('响应拦截', response.status, response);
 
     /* 处理 http 错误，抛到业务代码 */
@@ -140,4 +140,4 @@ const showStatus = (status) => {
     // return `${message}，请检查网络或联系管理员！`
 };
 
-export default service;
+export default https;

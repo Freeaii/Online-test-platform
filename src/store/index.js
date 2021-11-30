@@ -1,5 +1,6 @@
 import { objectToString } from '@vue/shared'
 import { createStore } from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 // import user from "./modules/user";
 const guest ={
   username: 'guest',
@@ -10,9 +11,10 @@ const guest ={
   access_token:'',
 }
 
-import defaultAvatar from '../assets/avatar.png'
+import defaultAvatar from '@/assets/avatar.png'
 
 export default createStore({
+  plugins: [createPersistedState()],
   state: {
     token: guest
   },

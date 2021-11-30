@@ -4,25 +4,18 @@
         <site-header @toggleMenu="leftmenu=!leftmenu"></site-header>
     </el-header>
     <el-container>
-      
       <el-aside width="auto" v-if="store.state.token.role !=='guest' ">
         <left-menu :collapse="leftmenu"></left-menu> 
       </el-aside>
-      <el-container>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
-        <el-footer>
-          &copy; Copyright 2021 
-        </el-footer>
-      </el-container>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
-    
   </el-container>
 </template>
 
 <script setup>
-import {computed, ref, reactive, onMounted, provide} from 'vue'
+import {computed, ref, reactive, onMounted, provide, onUnmounted} from 'vue'
 import {useStore} from 'vuex'
 import SiteHeader from './SiteHeader.vue'
 import LeftMenu from './LeftMenu.vue'
@@ -32,6 +25,10 @@ const leftmenu = ref(false)
 
 provide('user', computed(()=>store.state.token))
 
+onUnmounted(()=>{
+  console.log('unMounted')
+})
+
 </script>
 
 <style lang="scss" scoped>
@@ -39,13 +36,11 @@ provide('user', computed(()=>store.state.token))
   background: #1565c0 ;
   text-align: left;
 }
-.el-main {
-  padding-top: 0;
-}
-.el-aside{
-  // background:#545c64;
-  border-right: solid 0.5px silver;
-}
+
+// .el-aside{
+//   // background:#545c64;
+//   border-right: solid 0.5px silver;
+// }
 
 .el-footer{
   background-color:#909399;

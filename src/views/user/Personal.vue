@@ -4,7 +4,7 @@
       <el-tab-pane label="个人资料" name="first">
         <el-form ref="form" :model="userinfo" label-width="80px">
           <el-form-item label="工号">
-            <el-input v-model="userinfo.workno"></el-input>
+            <el-input v-model="userinfo.username"></el-input>
           </el-form-item>
           <el-form-item label="姓名">
             <el-input v-model="userinfo.name"></el-input>
@@ -33,23 +33,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Personal",
-  data() {
-    return {
-      activeName:'first',
-      userinfo: {
-        workno: "123",
-        name: "张三",
-        course: "计算机文化基础",
-        grade: "软件工程2017",
-        mobile: "13700000000",
-        email: "zs@swust.edu.cn",
-      },
-    };
-  },
-};
+<script setup>
+import {ref, inject, reactive, onMounted} from 'vue'
+import https from '@/apis/axios'
+
+  const userinfo = inject('user')
+  const activeName = ref('first')
+
 </script>
 
 <style>

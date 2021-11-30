@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import {ref, reactive, inject, defineProps} from 'vue'
+import {ref, reactive, inject} from 'vue'
 
 const user = inject('user')
 const activeIndex = ref("/")
