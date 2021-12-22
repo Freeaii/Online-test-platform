@@ -24,6 +24,10 @@
 * 安装完成后运行
 ```shell
   npm run dev
+  几个命令：
+  "dev": "vite",
+  "build": "vite build",
+  "serve": "vite preview"
 ```
 * 用浏览器打开
 > http://localhost:3000
