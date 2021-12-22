@@ -15,10 +15,11 @@ const reserveds = ['Menu', 'View']
 for(const name in elIcons){
   if(!reserveds.includes(name)){
     app.component(name, elIcons[name])
-  }else{  
+  }else{
     app.component('Icon' + name, elIcons[name])
   }
 }
+//全局配置
 app.use(ElementPlus, { size: "mini", zIndex:3000 })
 app.mount('#app')
 

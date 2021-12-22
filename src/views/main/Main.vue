@@ -5,11 +5,11 @@
     </el-header>
     <el-container>
       <el-aside width="auto" v-if="store.state.token.role !=='guest' ">
-        <left-menu :collapse="leftmenu"></left-menu> 
+        <left-menu :collapse="leftmenu"></left-menu>
       </el-aside>
-      <el-main>
+      <div class="main">
         <router-view></router-view>
-      </el-main>
+      </div>
     </el-container>
   </el-container>
 </template>
@@ -45,4 +45,12 @@ provide('user', computed(()=>store.state.token))
   line-height: 20px;
   font-size: 10px;
 }
+  .main{
+    --el-main-padding: 20px;
+    display: block;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    padding: var(--el-main-padding);
+  }
 </style>

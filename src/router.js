@@ -26,6 +26,19 @@ const routes = [
         alias: "/question_manage",
         name: "question_manage",
         component: () => import("./views/teacher/question/Index.vue"),
+        children:[{
+            path: "/question_manage",
+            alias: "/manage",
+            name: "manage",
+            component: () => import("./views/teacher/question/pages/Manage.vue"),
+        },
+        {
+            path: "/add_question",
+            alias: "/add_question",
+            name: "add_question",
+            component: () => import("./views/teacher/question/pages/Questions.vue"),
+        },
+        ]
       },{
         path: "/exercise_manage",
         alias: "/exercise_manage",
@@ -41,7 +54,7 @@ const routes = [
         alias: "/user_manage",
         name: "user_manage",
         component: () => import("./views/admin/user/index.vue"),
-      },{        
+      },{
         path: "/exercise_report",
         alias: "/exercise_report",
         name: "exercise_report",

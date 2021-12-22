@@ -19,7 +19,7 @@
                                 <router-link to="/login">登录</router-link>
                             </el-dropdown-item>
                         </el-dropdown-menu>
-                    </template> 
+                    </template>
                     <template v-else>
                         <el-dropdown-menu>
                             <el-dropdown-item @click="switchAccount()">切换账号</el-dropdown-item>
@@ -39,7 +39,6 @@ import { useRouter } from 'vue-router'
 import logo from "@/assets/logo.png";
 
 const emit = defineEmits(['toggleMenu'])
-
 const router = useRouter()
 const store = useStore()
 

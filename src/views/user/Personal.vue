@@ -19,7 +19,7 @@
             <el-input v-model="userinfo.mobile"></el-input>
           </el-form-item>
           <el-form-item label="邮箱">
-            <el-input v-model="userinfo.email"></el-input>
+            <el-input v-model="userinfo.schoice"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" >编辑资料</el-button>
@@ -39,7 +39,7 @@ import https from '@/apis/axios'
 
   let userinfo = inject('user')
   const activeName = ref('first')
-  
+
 
   onMounted(()=>{
     // console.log(userinfo.value)
@@ -47,9 +47,9 @@ import https from '@/apis/axios'
     // https.get('/users/'+userinfo.value.id).then(response=>{
     //   console.log(response)
     // })
-    
+
   })
-  
+
 
 </script>
 
