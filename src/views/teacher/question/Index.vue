@@ -19,6 +19,7 @@
             <el-button>导出</el-button>
           </div>
           <el-tree :data="options.data" :props="options.defaultProps" />
+          <Api></Api>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -31,6 +32,7 @@
 
 <script setup>
 import { ArrowRight } from "@element-plus/icons";
+import Api from './apiTest/Api.vue'
 import {reactive} from 'vue'
 let options=reactive({
   activeName: "first",
@@ -113,6 +115,7 @@ let options=reactive({
 }
 .left {
   min-width: 300px;
+  max-width: 360px;
   height: 100%;
   position: relative;
   padding: 1px 15px;
