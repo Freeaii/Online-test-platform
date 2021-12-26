@@ -66,6 +66,8 @@
     }
     .general-font{
         font-size: 14px;
+        display: flex;
+        align-items: center;
     }
     .general-margin{
         margin: 12px 0;
