@@ -6,29 +6,29 @@
         </div>
         <span class="general-color">【单项选择题】</span>
         <div class="title general-margin">
-            <div class="general-flex"><i/>当进行Excel2010中的分栏汇总时，必须事先按分类字段对数据进行()</div>
+            <div class="general-flex"><i/>{{data.question.question}}</div>
         </div>
         <div class="selects general-left">
             <div class="select">
                 <el-radio label="A">A、</el-radio>
-                <div class="general-font">测试题目</div>
+                <div class="general-font">{{data.question.optionsA}}</div>
             </div>
             <div class="select">
                 <el-radio label="B">B、</el-radio>
-                <div class="general-font">测试题目</div>
+                <div class="general-font">{{data.question.optionsB}}</div>
             </div>
             <div class="select">
                 <el-radio label="C">C、</el-radio>
-                <div class="general-font">测试题目</div>
+                <div class="general-font">{{data.question.optionsC}}</div>
             </div>
             <div class="select">
                 <el-radio model-value="D" label="D">D、</el-radio>
-                <div class="general-color general-font">测试题目</div>
+                <div class="general-color general-font">{{data.question.optionsD}}</div>
             </div>
         </div>
         <el-divider border-style="dashed" class="general-margin"></el-divider>
         <div class="answer">
-            <span>参考答案 <strong>D</strong></span>
+            <span>参考答案 <strong>{{data.question.answer}}</strong></span>
         </div>
         <el-divider border-style="dashed" class="general-margin"></el-divider>
         <div class="answer_parse">
@@ -45,9 +45,12 @@
 
 <script setup>
     import https from '@/apis/axios'
-    import {reactive} from 'vue';
-    let options=reactive({
-        answer:'D'
+    import {reactive,defineProps} from 'vue';
+    let data=defineProps({
+        question:{
+            type:Object,
+            required:true
+        }
     })
 </script>
 
