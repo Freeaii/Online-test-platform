@@ -6,9 +6,10 @@ import { ElMessage } from "element-plus";
 // 创建axios的实例
 const https = axios.create({
     // `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL
-    baseURL: import.meta.env.MODE === 'development' ? 'http://127.0.0.1:8000' : 'http://127.0.0.1:8000',
+    baseURL: import.meta.env.MODE === 'development' ? 'http://localhost:8000' : 'http://localhost:8000',
     headers: {
         'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Credentials':true,
     //     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
     },
     withCredentials: false, // 跨域请求时是否需要使用凭证

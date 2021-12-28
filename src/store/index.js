@@ -2,6 +2,8 @@ import { objectToString } from '@vue/shared'
 import { createStore } from 'vuex'
 import createPersistedState from "vuex-persistedstate";
 // import user from "./modules/user";
+
+import {teacher_question} from "./modules/teacher";
 const guest ={
   id:0,
   username: 'guest',
@@ -21,11 +23,14 @@ export default createStore({
   },
   modules: {
     // user
+
+    //teacher的question板块
+    teacher_question
   },
   mutations: {
     // 设置用户和令牌
     setToken(state,token) {
-      state.token=token  
+      state.token=token
       if(!token.avatar){
         state.token.avatar = defaultAvatar
       }

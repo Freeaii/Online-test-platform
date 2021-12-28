@@ -19,7 +19,6 @@
             <el-button>导出</el-button>
           </div>
           <el-tree :data="options.data" :props="options.defaultProps" />
-          <Api></Api>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -32,8 +31,12 @@
 
 <script setup>
 import { ArrowRight } from "@element-plus/icons";
-import Api from './apiTest/Api.vue'
+import {onMounted} from 'vue'
+import {useStore} from 'vuex'
 import {reactive} from 'vue'
+
+const store = useStore()
+
 let options=reactive({
   activeName: "first",
   ArrowRight,
@@ -104,6 +107,10 @@ let options=reactive({
     label: "label",
   },
 })
+  //组件挂载，请求数据
+  onMounted(()=>{
+    //将vuex中的数据赋值给知识点
+  })
 </script>
 
 <style lang="scss" scoped>

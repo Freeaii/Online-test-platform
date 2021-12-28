@@ -44,6 +44,7 @@
 </template>
 
 <script setup>
+    import https from '@/apis/axios'
     import {reactive} from 'vue';
     let options=reactive({
         answer:'D'

@@ -75,6 +75,7 @@
     * */
     import {reactive, ref, nextTick, inject,provide,onMounted} from 'vue'
     import PubSub from 'pubsub-js'
+    import https from '@/apis/axios'
     import axios from 'axios'
 
     //设置插槽名称
@@ -88,24 +89,16 @@
             hardValue:'',
             hardOption:[
                 {
-                    value: '0~0.1',
-                    label: '0~0.1',
+                    value: '简单',
+                    label: '简单',
                 },
                 {
-                    value: '0.1~0.25',
-                    label: '0.1~0.25',
+                    value: '普通',
+                    label: '普通',
                 },
                 {
-                    value: '0.25~0.45',
-                    label: '0.25~0.45',
-                },
-                {
-                    value: '0.45~0.6',
-                    label: '0.45~0.6',
-                },
-                {
-                    value: '0.6~1',
-                    label: '0.6~1',
+                    value: '困难',
+                    label: '困难',
                 },
             ]
         },//难度等级
