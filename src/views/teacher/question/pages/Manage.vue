@@ -58,7 +58,7 @@ const router = useRouter()
 const store = useStore()
 let options=reactive({
   menu: {
-    title: "题 型",
+    title: "题型",
     radios: ["单项选择题", "多项选择题", "判断题", "填空题", "简答题"],
   },
   hard:{

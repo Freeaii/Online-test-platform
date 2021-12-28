@@ -23,7 +23,7 @@
   import { useRouter } from 'vue-router'
   const router = useRouter()
   let menu={
-      title:'题 型',
+      title:'题型',
       radios:['单项选择题','多项选择题','判断题','填空题','简答题','完形填空','翻译','作文','阅读理解']
   }
   let style=ref(menu.radios[0])

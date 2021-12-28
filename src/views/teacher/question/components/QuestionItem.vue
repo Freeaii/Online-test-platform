@@ -3,7 +3,7 @@
         <ul>
             <li>
                 <el-card>
-                    <Choice></Choice>
+                    <Choice ></Choice>
                 </el-card>
             </li>
         </ul>
@@ -12,6 +12,17 @@
 
 <script setup>
   import Choice from './questionShow/Choice.vue'
+  import {onMounted} from 'vue'
+  import {useStore} from 'vuex'
+  import https from "../../../../apis/axios";
+  const  store=useStore()
+
+  onMounted(()=>{
+      let {level,questionStyle}=store.state.teacher_question
+      https.post('/mchoice',{level,questionStyle}).then(res=>{
+          console.log(res.items)
+      })
+  })
 </script>
 
 <style scoped>

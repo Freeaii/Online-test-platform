@@ -14,8 +14,10 @@
     *联系方式：1374977935@qq.com
     *制作日期：2021.12.9
     * */
-    import {ref,provide} from 'vue'
+    import {ref,provide,onMounted} from 'vue'
+    import {useStore} from 'vuex'
 
+    const store=useStore()
     /*
     * 接收父组件传递过来的选择列表
     * */
@@ -41,6 +43,18 @@
         //通知题目添加组件变更
         data.getStyle(event.target.value)
     }
+
+    onMounted(()=>{
+        //将数据更新到vuex中
+        if(data.menu.title==="题型"){
+            console.log(data.menu.title)
+            store.dispatch('changeQuestionStyle',data.menu.radios[0])
+        }
+        if(data.menu.title==='难度'){
+            store.dispatch('changeLevel',data.menu.radios[0])
+        }
+    })
+
 </script>
 
 <style lang="less" scoped>
