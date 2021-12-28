@@ -3,7 +3,7 @@
     <template #header>
       <div class="change">
         <span>课程名:</span>
-        <el-select v-model="options.course_id" placeholder="课程切换">
+        <el-select v-model="options.value" placeholder="课程切换">
           <el-option
                   v-for="item in options.selects"
                   :key="item.course_id"
@@ -52,8 +52,10 @@ import QuestionStyle from "../components/QuestionStyle.vue";
 import QuestionItem from "../components/QuestionItem.vue";
 import {reactive,onMounted} from 'vue';
 import {useRouter} from 'vue-router'
+import {useStore} from 'vuex'
 import https from "../../../../apis/axios";
 const router = useRouter()
+const store = useStore()
 let options=reactive({
   menu: {
     title: "题 型",
@@ -80,11 +82,12 @@ function addQuestion() {
 }
 onMounted(()=>{
   //获取课程列表
-  https.get('/course').then(res=>{
+  https.get('/courses').then(res=>{
     //将课程列表载入selects数据
-    options.selects=res.items.items
+    options.selects=res.items
     //更新vuex中的课程信息
-
+    options.value=res.items[0].course_id
+    // store.dispatch()
   })
 })
 </script>
