@@ -19,7 +19,7 @@
 
   onMounted(()=>{
       let {level,questionStyle}=store.state.teacher_question
-      https.post('/mchoice',{level,questionStyle}).then(res=>{
+      https.get('/mchoice',{params:{level,questionStyle}}).then(res=>{
           console.log(res.items)
       })
   })
