@@ -87,7 +87,8 @@ onMounted(()=>{
     options.selects=res.items
     //更新vuex中的课程信息
     options.value=res.items[0].course_id
-    // store.dispatch()
+    //将课程更新到vuex
+    store.dispatch("changeCourse",options.value)
   })
 })
 </script>

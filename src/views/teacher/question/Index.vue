@@ -34,6 +34,7 @@ import { ArrowRight } from "@element-plus/icons";
 import {onMounted} from 'vue'
 import {useStore} from 'vuex'
 import {reactive} from 'vue'
+import https from "../../../apis/axios";
 
 const store = useStore()
 
@@ -109,7 +110,13 @@ let options=reactive({
 })
   //组件挂载，请求数据
   onMounted(()=>{
+    let {course}=store.state.teacher_question
     //将vuex中的数据赋值给知识点
+    console.log(store.state.teacher_question.course)
+    //获取该课程知识点
+    https.post(`/courses/context:${course}`).then(res=>{
+     console.log(res.items)
+    })
   })
 </script>
 
